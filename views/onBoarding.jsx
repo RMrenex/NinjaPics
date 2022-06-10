@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image, Button } from 'react-native';
+import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+
 
 const OnBoarding = () => {
 
@@ -18,11 +19,27 @@ const OnBoarding = () => {
             color: '#4de389',
             fontWeight: '400',
             marginTop: 20,
+            fontFamily: 'Viga'
         },
         button_container: {
             alignItems: 'center',
             marginTop: 137
         },
+        touchable_container: {
+            backgroundColor: '#4de389',
+            borderRadius: 15,
+            width: 140,
+            height: 60
+        },
+        button_text: {
+            fontFamily: 'Gothic A1',
+            fontSize: 16,
+            fontWeight: '700',
+            color: 'white',
+            textAlign: 'center',
+            marginTop: 'auto',
+            marginBottom: 'auto'
+        }
     });
 
     return (
@@ -32,11 +49,11 @@ const OnBoarding = () => {
                 <Text style={styles.title}>Ninja Pics</Text>
             </View>
             <View style={styles.button_container}>
-                <Button
-                    title="C'est parti !"
-                    color='#4de389'
-                    style={styles.button}
-                />
+                <TouchableOpacity
+                    style={styles.touchable_container}
+                >
+                    <Text style={styles.button_text}>C'est parti !</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
