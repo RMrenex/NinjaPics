@@ -27,14 +27,29 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.10,
         shadowRadius: 12,
         elevation: 4,
+    },
+    text:{
+        display: 'flex',
+        flex: 1
+    },
+    show:{
+        width: 20,
+        height: 16,
+        marginTop: 'auto',
+        marginBottom: 'auto',
+        marginLeft: 10,
+        marginRight: 10
     }
 });
 
 const Input = (props) => {
   return (
     <View style={[styles.container, styles.shadow]}>
-        <Image style={styles.picture} source={require('../assets/pictures/envelope.svg')}/> 
-        <TextInput placeholder={props.placeholder} placeholderTextColor='#A1A8A6'/>
+        <Image style={styles.picture} source={require('../assets/pictures/' + props.name + '.png')}/> 
+        <TextInput style={styles.text} secureTextEntry={props.secure} placeholder={props.placeholder} placeholderTextColor='#A1A8A6'/>
+        {props.show && (
+            <Image style={styles.show} source={require('../assets/pictures/show.png')}/>
+        )}
     </View>
   );
 }
