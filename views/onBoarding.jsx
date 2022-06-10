@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-
 const OnBoarding = () => {
 
     const styles = StyleSheet.create({
@@ -39,6 +38,10 @@ const OnBoarding = () => {
             textAlign: 'center',
             marginTop: 'auto',
             marginBottom: 'auto'
+        },
+        logo:{
+            width: 165,
+            height: 165
         }
     });
 
