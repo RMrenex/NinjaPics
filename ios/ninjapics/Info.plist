@@ -54,6 +54,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Viga-Regular.ttf</string>
+		<string>GothicA1-Regular.ttf</string>
 	</array>
 </dict>
 </plist>
