@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "ninja-pics",
+    "slug": "ninja-pics",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
