@@ -1,6 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import { TouchableOpacity } from 'react-native-web';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import Header from '../components/header';
 import Stepper from '../components/stepper';
 import Upload from '../components/upload';
