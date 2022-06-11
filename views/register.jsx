@@ -1,9 +1,8 @@
 import React from 'react';
-import { Text, View, StyleSheet} from 'react-native';
+import { Text, View, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import Header from '../components/header';
 import Stepper from '../components/stepper';
 import Input from '../components/input';
-import { ScrollView, TouchableOpacity } from 'react-native-web';
 
 const styles = StyleSheet.create({
     container:{
