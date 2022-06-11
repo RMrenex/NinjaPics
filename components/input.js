@@ -1,5 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TextInput, StyleSheet, View, Image} from 'react-native';
+import { TouchableOpacity } from 'react-native-web';
+
+
+const Input = (props) => {
+
+    const [isSecure, setIsSecure] = useState(true);
+
+    const toggleVisibility = () => {
+        setIsSecure(!isSecure);
+    }
+
+  return (
+    <View style={[styles.container, styles.shadow]}>
+        <Image style={styles.picture} source={require('../assets/pictures/' + props.name + '.png')}/> 
+        <TextInput style={styles.text} 
+            value={props.value} 
+            secureTextEntry={props.secure ? isSecure : props.secure} 
+            placeholder={props.placeholder} 
+            placeholderTextColor='#A1A8A6' 
+            onChangeText={props.onChangeText}
+        />
+        {props.show && (
+            <TouchableOpacity onPress={toggleVisibility}>
+                <Image style={styles.show} source={require('../assets/pictures/show.png')}/>
+            </TouchableOpacity>
+        )}
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
     container:{
@@ -41,17 +70,5 @@ const styles = StyleSheet.create({
         marginRight: 10
     }
 });
-
-const Input = (props) => {
-  return (
-    <View style={[styles.container, styles.shadow]}>
-        <Image style={styles.picture} source={require('../assets/pictures/' + props.name + '.png')}/> 
-        <TextInput style={styles.text} secureTextEntry={props.secure} placeholder={props.placeholder} placeholderTextColor='#A1A8A6'/>
-        {props.show && (
-            <Image style={styles.show} source={require('../assets/pictures/show.png')}/>
-        )}
-    </View>
-  );
-}
 
 export default Input;
