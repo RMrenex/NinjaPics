@@ -13,7 +13,7 @@ const Input = (props) => {
 
   return (
     <View style={[styles.container, styles.shadow]}>
-        <Image style={styles.picture} source={require('../assets/pictures/' + props.name + '.png')}/> 
+        <Image style={styles.picture} source={{url: 'https://img-19.commentcamarche.net/iBYO1DOif2mcoMT7crnZ0Yy3XaU=/480x270/smart/b829396acc244fd484c5ddcdcb2b08f3/ccmcms-commentcamarche/20494859.jpg'}}/> 
         <TextInput style={styles.text} 
             value={props.value} 
             secureTextEntry={props.secure ? isSecure : props.secure} 
