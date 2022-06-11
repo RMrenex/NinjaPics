@@ -1,6 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import { Modal, TouchableOpacity } from 'react-native-web';
+import { Text, View, StyleSheet, Modal, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
     container:{
@@ -107,7 +106,7 @@ const Charter = () => {
         <Modal
             animationType='fade'
             transparent={true}
-            visible={false}
+            visible={true}
         >
             <View style={styles.modal_container}>
                 <View style={styles.dialog_container}>
