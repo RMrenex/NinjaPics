@@ -85,8 +85,8 @@ const Login = () => {
         <Header/>
         <Text style={styles.top_title}>Connectez-vous à votre compte</Text>
         <View>
-            <Input placeholder='E-mail'/>
-            <Input placeholder='Mot de passe'/>
+            <Input placeholder='E-mail' name='message'/>
+            <Input placeholder='Mot de passe' name='lock'/>
         </View>
         <View style={styles.auth_container}>
             <Text style={styles.continue}>Ou continuer avec</Text>
