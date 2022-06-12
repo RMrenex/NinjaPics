@@ -1,5 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View, StyleSheet, Modal, TouchableOpacity } from 'react-native';
+
+const Charter = () => {
+
+    const [modalIsVisible, setModalVisible] = useState(false);
+    const [check, setCheck] = useState(false);
+
+    const toggleAlert = () => {
+        setModalVisible(!modalIsVisible);
+    }
+
+    const toggleAgreement = () =>{
+        setCheck(!check);
+    }
+
+    const validate = () => {
+        if(!check){
+            setModalVisible(true);
+        } else {
+            //go to next page
+        }
+    }
+
+  return (
+    <View style={styles.container}>
+        <Modal
+            animationType='fade'
+            transparent={true}
+            visible={modalIsVisible}
+        >
+                <View style={styles.modal_container}>
+                    <View style={styles.dialog_container}>
+                        <View style={styles.dialog_sub_container}>
+                            <Text style={styles.dialog_title}>Il manque un petit truc là ...</Text>
+                            <Text style={styles.dialog_content}>Tu dois accepter les conditions d’utilisation pour pouvoir t’inscrire</Text>
+                            <TouchableOpacity style={styles.ok_button} onPress={toggleAlert}>
+                                <Text style={styles.ok_text}>Ok</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
+        </Modal>
+        <Text style={styles.content}>
+            Bienvenue sur Ninja Pics !
+            {'\n\n'}
+            Avant d’utiliser l’application, il est important que tu sois informé de tes droits en matière de données personnelles. En utilisant Ninja Pics,  tu nous fournis ton nom, ta date de naissance, ton numéro de téléphone et tes données de position. Tout cela, nous l’utilisons pour que tu puisses utiliser Ninja Pics.
+            {'\n\n'}
+            Notre <Text style={styles.underline}>politique de protection des données</Text> explique en détail l’usage de tes données. Prends le temps de la lire attentivement, nous l’avont rendue la plus claire possible, et en sommes fiers !
+            {'\n\n'}
+            Si une question reste cependant sans réponses, tu peux toujours nous contacter sur <Text style={styles.underline}>love@ninjapics.fr</Text> !
+        </Text>
+        <View style={styles.accept}>
+            <Text style={!check ? styles.check : styles.check_ok} onPress={toggleAgreement}> </Text>
+            <Text style={styles.accept_text}>J’accepte <Text style={styles.underline}>les conditions d’utilisation du service</Text></Text>
+        </View>
+        <TouchableOpacity style={styles.button} onPress={validate}>
+                <Text style={styles.button_text}>Continuer</Text>
+        </TouchableOpacity>
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
     container:{
@@ -25,6 +85,17 @@ const styles = StyleSheet.create({
     },
     check:{
         backgroundColor: 'white',
+        width: 15,
+        height: 15,
+        borderRadius: 50,
+        borderWidth: 1,
+        borderColor: '#4de389',
+        marginTop: 'auto',
+        marginBottom: 'auto',
+        marginRight: 5
+    },
+    check_ok:{
+        backgroundColor: '#4de389',
         width: 15,
         height: 15,
         borderRadius: 50,
@@ -99,45 +170,5 @@ const styles = StyleSheet.create({
 
     }
 });
-
-const Charter = () => {
-  return (
-    <View style={styles.container}>
-        <Modal
-            animationType='fade'
-            transparent={true}
-            visible={true}
-        >
-            <View style={styles.modal_container}>
-                <View style={styles.dialog_container}>
-                    <View style={styles.dialog_sub_container}>
-                        <Text style={styles.dialog_title}>Il manque un petit truc là ...</Text>
-                        <Text style={styles.dialog_content}>Tu dois accepter les conditions d’utilisation pour pouvoir t’inscrire</Text>
-                        <TouchableOpacity style={styles.ok_button}>
-                            <Text style={styles.ok_text}>Se connecter</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </View>
-        </Modal>
-        <Text style={styles.content}>
-            Bienvenue sur Ninja Pics !
-            {'\n\n'}
-            Avant d’utiliser l’application, il est important que tu sois informé de tes droits en matière de données personnelles. En utilisant Ninja Pics,  tu nous fournis ton nom, ta date de naissance, ton numéro de téléphone et tes données de position. Tout cela, nous l’utilisons pour que tu puisses utiliser Ninja Pics.
-            {'\n\n'}
-            Notre <Text style={styles.underline}>politique de protection des données</Text> explique en détail l’usage de tes données. Prends le temps de la lire attentivement, nous l’avont rendue la plus claire possible, et en sommes fiers !
-            {'\n\n'}
-            Si une question reste cependant sans réponses, tu peux toujours nous contacter sur <Text style={styles.underline}>love@ninjapics.fr</Text> !
-        </Text>
-        <View style={styles.accept}>
-            <Text style={styles.check}> </Text>
-            <Text style={styles.accept_text}>J’accepte <Text style={styles.underline}>les conditions d’utilisation du service</Text></Text>
-        </View>
-        <TouchableOpacity style={styles.button}>
-                <Text style={styles.button_text}>Continuer</Text>
-        </TouchableOpacity>
-    </View>
-  );
-}
 
 export default Charter;
