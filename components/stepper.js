@@ -12,17 +12,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    step:{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        //backgroundColor: '#4de389',
-        backgroundColor: '#caf6dc',
-        borderRadius: 50,
-        width: 35,
-        height: 35,
-        color: 'white'
-    },
     active:{
         backgroundColor: '#4de389',
     },
@@ -35,6 +24,19 @@ const styles = StyleSheet.create({
         width: 60,
         height: 2,
         backgroundColor: '#DFDFDF',
+    },
+    round:{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        //backgroundColor: '#4de389',
+        backgroundColor: '#caf6dc',
+        borderRadius: 50,
+        width: 35,
+        height: 35,
+        color: 'white'
     }
 });
 
@@ -42,7 +44,9 @@ const Stepper = (props) => {
   return (
     <View style={styles.container}>
         <View style={styles.step_container}>
-            <Text style={[styles.step, styles.active]}>1</Text>
+            <View style={[styles.round, styles.active]}>
+                <Text style={styles.number}>1</Text>
+            </View>
             <Text>Informations</Text>
         </View>
 
@@ -51,7 +55,9 @@ const Stepper = (props) => {
         </View>
 
         <View style={styles.step_container}>
-            <Text style={styles.step}>2</Text>
+            <View style={styles.round}>
+                <Text style={styles.number}>2</Text>
+            </View>
             <Text>   Photos   </Text>
         </View>
     </View>
