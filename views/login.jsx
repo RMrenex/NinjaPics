@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Header from '../components/header';
 import Input from '../components/input';
+import Home from '../views/home'
 
-const Login = () => {
-
+const Login = ({navigation}) => {
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const checkLogin = () => {
+
         if(email !== undefined && password !== undefined){
             if(emailValidator(email)){
                 console.log('good');
+                navigation.navigate('OnBoarding');
             }else {
                 console.log('email format error');
             }

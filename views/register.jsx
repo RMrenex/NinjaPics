@@ -4,7 +4,7 @@ import Header from '../components/header';
 import Stepper from '../components/stepper';
 import Input from '../components/input';
 
-const Register = () => {
+const Register = ({navigation}) => {
 
     const [pseudo, setPseudo] = useState();
     const [email, setEmail] = useState();
@@ -29,8 +29,7 @@ const Register = () => {
         if(pseudo && email && password && confirmPassword && city){
             if(emailValidator(email)){
                 if(password === confirmPassword){
-
-                    //gg
+                    navigation.navigate('Register2');
 
                 } else {
                     toast('Passwords is not same');

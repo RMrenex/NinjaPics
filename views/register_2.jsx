@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import Header from '../components/header';
 import Stepper from '../components/stepper';
 import Upload from '../components/upload';
@@ -42,9 +42,14 @@ const styles = StyleSheet.create({
     },
 })
 
-const Register_2 = () => {
+const Register_2 = ({navigation}) => {
+
+    const goToNextPage = () => {
+        //Add checking
+    }
+
   return (
-    <View>
+    <ScrollView>
         <Header/>
         <View style={styles.container}>
             <Text style={styles.top_title}>Inscrivez-vous gratuitement</Text>
@@ -56,11 +61,11 @@ const Register_2 = () => {
             <Upload content='Photo de profil droit'/>
         </View>
         <View style={styles.footer}>
-            <TouchableOpacity style={styles.create}>
+            <TouchableOpacity style={styles.create} onPress={() => navigation.navigate('Charter')} >
                     <Text style={styles.create_text}>Créer un compte</Text>
             </TouchableOpacity>
         </View>
-    </View>
+    </ScrollView>
   );
 }
 
