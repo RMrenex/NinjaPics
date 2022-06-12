@@ -2,6 +2,33 @@ import React from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Menu from '../components/menu';
 
+const Home = () => {
+  return (
+      <>
+          <View style={styles.container}>
+              <Text style={styles.top_title}>Choisissez votre mode de jeu</Text>
+              <View style={styles.alone}>
+                  <Image style={styles.alone_icon} source={require('../assets/pictures/solo.png')} />
+                  <TouchableOpacity
+                      style={styles.touchable_container}
+                  >
+                      <Text style={styles.button_text}>En solo</Text>
+                  </TouchableOpacity>
+              </View>
+              <View style={styles.team}>
+                  <Image style={styles.group_icon} source={require('../assets/pictures/group.png')} />
+                  <TouchableOpacity
+                      style={styles.touchable_container}
+                  >
+                      <Text style={styles.button_text}>En groupe</Text>
+                  </TouchableOpacity>
+              </View>
+          </View>
+          <Menu/>
+      </>
+  );
+}
+
 const styles = StyleSheet.create({
     container:{
         display: 'flex',
@@ -45,32 +72,5 @@ const styles = StyleSheet.create({
         marginBottom: 'auto'
     }
 });
-
-const Home = () => {
-  return (
-      <>
-          <View style={styles.container}>
-              <Text style={styles.top_title}>Choisissez votre mode de jeu</Text>
-              <View style={styles.alone}>
-                  <Image style={styles.alone_icon} source={require('../assets/pictures/solo.png')} />
-                  <TouchableOpacity
-                      style={styles.touchable_container}
-                  >
-                      <Text style={styles.button_text}>En solo</Text>
-                  </TouchableOpacity>
-              </View>
-              <View style={styles.team}>
-                  <Image style={styles.group_icon} source={require('../assets/pictures/group.png')} />
-                  <TouchableOpacity
-                      style={styles.touchable_container}
-                  >
-                      <Text style={styles.button_text}>En groupe</Text>
-                  </TouchableOpacity>
-              </View>
-          </View>
-          <Menu/>
-      </>
-  );
-}
 
 export default Home;
