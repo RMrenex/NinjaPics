@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         width: 35,
         height: 35,
+    },
+    number:{
         color: 'white'
     }
 });
