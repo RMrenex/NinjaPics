@@ -1,5 +1,43 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import { Text, View, StyleSheet, Image, PermissionsAndroid, Platform} from 'react-native';
+
+const Upload = (props) => {
+
+    const requestCameraPermission = async() => {
+        if(Platform.OS === 'android'){
+            try{
+                const granted =  await PermissionsAndroid.request(
+                    PermissionsAndroid.PERMISSIONS.CAMERA,
+                    {
+                        title: "Cool Photo App Camera Permission",
+                        message:
+                          "Cool Photo App needs access to your camera " +
+                          "so you can take awesome pictures.",
+                        buttonNeutral: "Ask Me Later",
+                        buttonNegative: "Cancel",
+                        buttonPositive: "OK"  
+                    }
+                );
+                if(granted === PermissionsAndroid.RESULTS.GRANTED){
+                    console.log("You can use the camera");
+                } else {
+                    console.log("Camera permission denied");
+                }
+            }catch(err){
+                console.warn(err);
+            }
+        }
+    }
+
+  return (
+    <View style={[styles.container, styles.shadow]}>
+        <View style={styles.sub_container}>
+            <Image style={styles.icon} source={require('../assets/pictures/plus.png')}/>
+        </View>
+        <Text style={styles.text}>{props.content}</Text>
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
     container:{
@@ -49,16 +87,5 @@ const styles = StyleSheet.create({
         elevation: 4,
     },
 });
-
-const Upload = (props) => {
-  return (
-    <View style={[styles.container, styles.shadow]}>
-        <View style={styles.sub_container}>
-            <Image style={styles.icon} source={require('../assets/pictures/plus.png')}/>
-        </View>
-        <Text style={styles.text}>{props.content}</Text>
-    </View>
-  );
-}
 
 export default Upload;
