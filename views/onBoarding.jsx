@@ -1,7 +1,24 @@
 import React from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-const OnBoarding = () => {
+
+const OnBoarding = (props) => {
+
+    return (
+        <View style={styles.container}>
+            <View style={styles.top_container}>
+                <Image style={styles.logo} source={require('../assets/logo.png')}/>
+                <Text style={styles.title}>Ninja Pics</Text>
+            </View>
+            <View style={styles.button_container}>
+                <TouchableOpacity
+                    style={styles.touchable_container}
+                >
+                    <Text style={styles.button_text}>C'est parti !</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+    );
 
     const styles = StyleSheet.create({
         container: {
@@ -44,22 +61,6 @@ const OnBoarding = () => {
             height: 165
         }
     });
-
-    return (
-        <View style={styles.container}>
-            <View style={styles.top_container}>
-                <Image style={styles.logo} source={require('../assets/logo.png')}/>
-                <Text style={styles.title}>Ninja Pics</Text>
-            </View>
-            <View style={styles.button_container}>
-                <TouchableOpacity
-                    style={styles.touchable_container}
-                >
-                    <Text style={styles.button_text}>C'est parti !</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    );
 }
 
 export default OnBoarding;
