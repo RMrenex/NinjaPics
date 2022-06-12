@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { TextInput, StyleSheet, View, Image} from 'react-native';
-import { TouchableOpacity } from 'react-native-web';
+import { TextInput, StyleSheet, View, Image, TouchableOpacity, Platform} from 'react-native';
 
 
 const Input = (props) => {
@@ -11,9 +10,32 @@ const Input = (props) => {
         setIsSecure(!isSecure);
     }
 
+    const renderSwitch = (name) => {
+        switch(name){
+            case 'home':
+                return <Image style={styles.picture} source={require('../assets/pictures/home.png')} />;
+                break;
+            case 'location':
+                return <Image style={styles.picture} source={require('../assets/pictures/location.png')} />;
+                break;
+            case 'lock':
+                return <Image style={styles.picture} source={require('../assets/pictures/lock.png')} />;
+                break;
+            case 'message':
+                return <Image style={styles.picture} source={require('../assets/pictures/message.png')} />;
+                break;
+            case 'plus':
+                return <Image style={styles.picture} source={require('../assets/pictures/plus.png')} />;
+                break;
+            case 'profile':
+                return <Image style={styles.picture} source={require('../assets/pictures/profile.png')} />;
+                break;
+        }
+    }
+
   return (
-    <View style={[styles.container, styles.shadow]}>
-        <Image style={styles.picture} source={require('../assets/pictures/' + props.name + '.png')}/> 
+    <View style={[styles.container]}>
+        {renderSwitch(props.name)} 
         <TextInput style={styles.text} 
             value={props.value} 
             secureTextEntry={props.secure ? isSecure : props.secure} 
