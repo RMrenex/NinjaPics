@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, TextInput, Image, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Header from '../components/header';
 import Input from '../components/input';
 
-const Login = (props) => {
+const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -24,11 +24,11 @@ const Login = (props) => {
     }
 
   return (
-    <View onLayout={props.layout}>
+    <ScrollView>
         <Header/>
         <Text style={styles.top_title}>Connectez-vous à votre compte</Text>
         <View>
-            <Input placeholder='E-mail' name='message' onChangeText={(value) => setEmail(value)}/>
+            <Input placeholder='E-mail' name='home' onChangeText={(value) => setEmail(value)}/>
             <Input placeholder='Mot de passe' name='lock' secure={true} show={true} onChangeText={(value) => setPassword(value)}/>
         </View>
         <View style={styles.auth_container}>
@@ -40,7 +40,7 @@ const Login = (props) => {
                         <Text style={styles.button_text}>Google</Text>
                     </View>
                 </TouchableOpacity>
-                    <>&nbsp;&nbsp;&nbsp;&nbsp;</>
+                <Text>&nbsp;&nbsp;&nbsp;&nbsp;</Text>
                 <TouchableOpacity style={styles.button}>
                     <View style={styles.button_sub_container}>
                         <Image style={styles.brand_logo} source={require('../assets/pictures/facebook.png')}/>
@@ -53,7 +53,7 @@ const Login = (props) => {
                 <Text style={styles.connection_text}>Se connecter</Text>
             </TouchableOpacity>
         </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -105,7 +105,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginTop: 'auto',
         marginBottom: 'auto',
-        alignItems: 'end',
+        alignItems: 'flex-end',
+        /* alignItems: 'end', */
     },
     password_forget:{
         fontFamily: 'Gothic A1',
